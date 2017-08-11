@@ -1,0 +1,5 @@
+http://rukbottoland.com/blog/diseno-de-interfaces-web-con-react-js/
+
+
+render desde el server con php
+https://blog.frankdejonge.nl/rendering-reactjs-templates-server-side/

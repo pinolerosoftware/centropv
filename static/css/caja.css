@@ -1,0 +1,46 @@
+.buscar{
+    /*border: solid black 1px;*/
+    /*height: 30px;*/
+    margin-bottom: 5px;
+}
+
+.total{    
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.btn-caja{
+	margin-bottom: 5px;
+}
+
+.heading-total{
+    vertical-align: middle;
+}
+
+.ventanaModal{
+    border-radius: 5px;  
+    background-color: rgba(203, 199, 199, 0.5);
+    bottom: 0px;
+    display: none;
+    left: 0px;    
+    position: fixed;
+    right: 0px;  
+    top: 0px;
+    z-index: 10000000000000000;    
+}
+
+.ventanaModal-content{
+    margin: 40px 20px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 40px 20px;
+}
+
+.ventanaModal-header{
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.ventanaModal-title{
+    text-align: center;
+}

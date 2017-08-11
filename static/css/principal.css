@@ -1,0 +1,120 @@
+body{
+	padding: 10px;	
+	margin: 10px;
+}
+
+.content{
+	margin: 40px;		
+}
+
+.acciones{
+    text-align: center;
+}
+
+.acciones:hover{
+    color: #ef152c;
+}
+
+.center{
+	text-align: center;
+}
+
+.blanco{
+	color:#777777;
+}
+
+.huge {
+    font-size: 40px;
+}
+
+ fieldset 
+	{
+		border: 1px solid #ddd !important;
+		margin: 6px;		
+		padding: 10px;       
+		/*position: relative;*/
+		border-radius:4px;
+		background-color:#f5f5f5;
+		/*padding-left:10px!important;*/
+	}
+legend
+{
+	font-size:14px;
+	font-weight:bold;
+	margin-bottom: 0px; 
+	/*width: 35%; */
+	border: 1px solid #ddd;
+	border-radius: 4px; 
+	padding: 5px 5px 5px 10px; 
+	background-color: #ffffff;
+}
+
+
+/*
+.navbar-top-item {
+	margin-right: 0;
+}
+
+.navbar-top-item li:last-child{
+	margin-right: 15px;
+}
+
+@media (min-width: 768px)
+{
+	.sidebar {
+		z-index: 1;
+		position: absolute;
+		width: 250px;
+		margin-top: 51px;
+	}
+}
+*/
+
+@media (min-width: 168px){
+	.content{
+		margin-top: 40px;
+		margin-bottom: 0px;		
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
+
+.table-resumen-ventas > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-resumen-ventas > tbody > tr:first-child {
+    border-top: 0;
+}
+
+.table-resumen-ventas > tbody > tr > td {
+    border-top: 0;
+}
+
+.nav-tabs{
+	border-bottom: 0 solid transparent;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+	color: #6715e6;
+    cursor: default;
+	background-color: transparent;
+	border: 0 solid transparent;
+}
+
+.margen-tabla{
+	margin: 5px;
+}
+
+/*
+.nav-tabs { border-bottom: 2px solid #DDD; }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
+    .nav-tabs > li > a { border: none; color: #666; }
+        .nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none; color: #4285F4 !important; background: transparent; }
+        .nav-tabs > li > a::after { content: ""; background: #4285F4; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
+    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
+.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
+.tab-pane { padding: 15px 0; }
+.tab-content{padding:20px}
+
+.card {background: #FFF none repeat scroll 0% 0%; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); height: 100%; margin-bottom: 30px; }
+body{ background: #EDECEC; }*/
