@@ -12,25 +12,25 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="/usuarios/nuevo" >
+                            <a href="/bodegas" >
                                 <i class="ti-panel"></i>
 								<p>Bodegas</p>
                             </a>
                         </li>
                         <li>
-                            <a href="/usuarios/nuevo" >
+                            <a href="/marcas" >
                                 <i class="ti-panel"></i>
 								<p>Marcas</p>
                             </a>
                         </li>
                         <li>
-                            <a href="/usuarios/nuevo" >
+                            <a href="/categorias" >
                                 <i class="ti-panel"></i>
 								<p>Categorias</p>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/login/logout">
 								<p>Salir</p>
 								<i class="ti-shift-right"></i>
                             </a>
