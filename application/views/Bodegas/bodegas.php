@@ -45,6 +45,9 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Lista de productos</h4>
+                        <a href="/bodegas/nueva" class="pull-right h4">
+                          <i class="ti-plus"></i>
+                        </a>
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-striped">
@@ -55,7 +58,7 @@
                             <tbody>
                              <?php
                                 foreach ($query as $fila) {
-                            ?>	
+                            ?>
                                 <tr>
                                     <td><?php echo $fila->cellar; ?></td>
                                     <td style="text-align: center">
@@ -71,7 +74,7 @@
                                 </tr>
                             <?php
                                 }
-                            ?>  
+                            ?>
                             </tbody>
                         </table>
                     </div>
@@ -82,34 +85,34 @@
 		<div class="panel-heading">
             <div class="row">
                 <div class="col-xs-6 col-md-6 text-left">
-                    <strong>Lista de Bodegas</strong>            
+                    <strong>Lista de Bodegas</strong>
                 </div>
                 <div class="col-xs-6 col-md-6 text-right">
                 <?php if($nuevo == '1') {?>
                     <a class="blanco cursor-pointer" href="<?php echo base_url().'bodegas/nueva/';?> ">
                         <span class="glyphicon glyphicon-plus"></span>
-                    </a> 
+                    </a>
                 <?php } ?>
                 </div>
-            </div>           
-        </div>                    	
+            </div>
+        </div>
         <div class="panel-body">
         <div class="table-responsive">
         	<table class="table table-bordered">
                 <thead class="thead-default">
                     <tr>
-                        <th>Bodega</th>                        
+                        <th>Bodega</th>
                         <th colspan="2" class="center">Acción</th>
                     </tr>
-                </thead> 
+                </thead>
                 <tbody>
                     <?php
 						foreach ($query as $fila) {
-					?>		
+					?>
 						<tr>
 							<td><?php echo $fila->cellar ?></td>
                             <td class="center">
-                            <?php if($editar == '1') {?>     
+                            <?php if($editar == '1') {?>
                                 <a class="cursor-pointer" href="<?php echo base_url().'bodegas/modificar/'.$fila->cellarID; ?>">
                                     <span class="glyphicon glyphicon-edit"></span>
                                 </a>
@@ -125,8 +128,8 @@
 						</tr>
 					<?php
 						}
-					?>      	
-                </tbody> 
+					?>
+                </tbody>
             </table>
             </div>
         </div>

@@ -31,8 +31,8 @@
                         </li>
                         <li>
                             <a href="/login/logout">
-								<p>Salir</p>
-								<i class="ti-shift-right"></i>
+              								<p>Salir</p>
+              								<i class="ti-shift-right"></i>
                             </a>
                         </li>
                     </ul>
@@ -46,6 +46,9 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Lista de productos</h4>
+                        <a href="/productos/nueva" class="pull-right h4">
+                          <i class="ti-plus"></i>
+                        </a>
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-striped">
@@ -63,7 +66,7 @@
                             <tbody>
                                 <?php
                                     foreach ($query as $fila) {
-                                ?>	
+                                ?>
                                     <tr>
                                         <td><?php echo $fila->codigo; ?></td>
                                         <td><?php echo $fila->descripcion; ?></td>
@@ -73,7 +76,7 @@
                                         <td><?php echo $fila->category; ?></td>
                                         <td class="center">
                                             <div class="checkbox">
-												<input type="checkbox" <?php echo ($fila->service == 1)?"checked":""; ?> disabled />												
+												<input type="checkbox" <?php echo ($fila->service == 1)?"checked":""; ?> disabled />
 											</div>
                                         </td>
                                         <td class="center">
@@ -98,20 +101,20 @@
                                     </tr>
                                 <?php
                                     }
-                                ?>  
+                                ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-   
+
 	<!--
         <div class="panel panel-success">
 		<div class="panel-heading">
             <div class="row">
                 <div class="col-xs-6 col-md-6 text-left">
-                    <strong>Lista de Productos</strong>            
+                    <strong>Lista de Productos</strong>
                 </div>
                 <div class="col-xs-6 col-md-6 text-right">
                 <?php if($nuevo == '1') { ?>
@@ -120,8 +123,8 @@
                     </a>
                 <?php } ?>
                 </div>
-            </div>           
-        </div>                    	
+            </div>
+        </div>
         <div class="panel-body">
         <div class="table-responsive">
         	<table class="table table-bordered">
@@ -137,11 +140,11 @@
                         <th>IVA</th>
                         <th colspan="2" class="center">Acción</th>
                     </tr>
-                </thead> 
+                </thead>
                 <tbody>
                     <?php
 						foreach ($query as $fila) {
-					?>		
+					?>
 						<tr>
 							<td><?php echo $fila->codigo ?></td>
                             <td><?php echo $fila->descripcion ?></td>
@@ -168,13 +171,10 @@
 						</tr>
 					<?php
 						}
-					?>      	
-                </tbody> 
+					?>
+                </tbody>
             </table>
             </div>
         </div>
 	</div>
     -->
-
-
-   
