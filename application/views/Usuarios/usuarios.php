@@ -18,7 +18,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/login/logout">
 								<p>Salir</p>
 								<i class="ti-shift-right"></i>
                             </a>

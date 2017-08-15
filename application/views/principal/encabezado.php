@@ -33,37 +33,37 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li class="<?php echo isset($menuActivo)?($menuActivo == 'Dashboard')?"active":"":""; ?>">
                     <a href="/">
                         <i class="ti-layout"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li>
+                <li class="<?php echo isset($menuActivo)?($menuActivo == 'Usuarios')?"active":"":""; ?>">
                     <a href="/usuarios">
                         <i class="ti-user"></i>
                         <p>Usuarios</p>
                     </a>
                 </li>
-                <li>
+                <li class="<?php echo isset($menuActivo)?($menuActivo == 'Inventario')?"active":"":""; ?>">
                     <a href="/productos">
                         <i class="ti-view-list-alt"></i>
                         <p>Inventario</p>
                     </a>
                 </li>
-                <li>
+                <li class="<?php echo isset($menuActivo)?($menuActivo == 'Vantas')?"active":"":""; ?>">
                     <a href="/caja">
                         <i class="ti-shopping-cart"></i>
                         <p>Vantas</p>
                     </a>
                 </li>
-                <li>
+                <li class="<?php echo isset($menuActivo)?($menuActivo == 'Reportes')?"active":"":""; ?>">
                     <a href="#">
                         <i class="ti-bar-chart"></i>
                         <p>Reportes</p>
                     </a>
                 </li>
-                <li>
+                <li class="<?php echo isset($menuActivo)?($menuActivo == 'Configuracion')?"active":"":""; ?>">
                     <a href="/configuracion">
                         <i class="ti-panel"></i>
                         <p>Configuracion</p>

@@ -15,6 +15,7 @@ class Home extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;		
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;
+		$dataE['menuActivo'] = 'Dashboard';
 		$data['totalDia'] = $this->ventas_model->ventaDia($this->session->companyID);
 		$data['totalMes'] = $this->ventas_model->ventaMes($this->session->companyID);
 		$data['totalSemana'] = $this->ventas_model->ventaSemana($this->session->companyID);
@@ -33,6 +34,7 @@ class Home extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;	
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;
+		$dataE['menuActivo'] = 'Dashboard';
 		$data['dia'] = $detalle;
 		if($detalle == 'dia'){
 			$data['query'] = $this->ventas_model->ventaDiaDetalle($this->session->companyID);

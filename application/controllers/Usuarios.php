@@ -17,6 +17,7 @@ class Usuarios extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;
+		$dataE['menuActivo'] = 'Usuarios';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Usuarios/usuarios', $data);
 		$this->load->view('principal/pie');
@@ -30,6 +31,7 @@ class Usuarios extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;	
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;
+		$dataE['menuActivo'] = 'Usuarios';
 		$dataP['linkScript'] = 'usuario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('usuarios/nuevo');
@@ -47,6 +49,7 @@ class Usuarios extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;
+		$dataE['menuActivo'] = 'Usuarios';
 		$dataP['linkScript'] = 'usuario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Usuarios/editar', $data);

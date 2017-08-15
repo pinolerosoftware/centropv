@@ -12,7 +12,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">                        
                         <li>
-                            <a href="#">
+                            <a href="/login/logout">
 								<p>Salir</p>
 								<i class="ti-shift-right"></i>
                             </a>

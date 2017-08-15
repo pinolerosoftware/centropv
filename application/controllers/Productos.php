@@ -22,6 +22,7 @@ class Productos extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Productos/productos', $data);
 		$this->load->view('principal/pie');
@@ -37,6 +38,7 @@ class Productos extends CI_Controller {
 		$dataE['administrator'] = $this->session->administrator;
 		$data['brand'] = $this->marcas_model->getAllBrands($this->session->companyID);
 		$data['category'] = $this->categorias_model->getAllCategorys($this->session->companyID);
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Productos/nueva', $data);
 		$this->load->view('principal/pie');
@@ -54,6 +56,7 @@ class Productos extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Productos/editar', $data);
 		$this->load->view('principal/pie');
@@ -69,6 +72,7 @@ class Productos extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Productos/eliminar', $data);
 		$this->load->view('principal/pie');

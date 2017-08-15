@@ -8,7 +8,7 @@ class Configuracion extends CI_Controller {
         $this->load->model('company_model');				
 		$this->load->model('iva_model');
 	}
-
+	//[get]
     public function index(){
 		if(!isset($this->session->usercompanyID)) redirect('login');
 		if($this->session->administrator == '0') redirect('/');	
@@ -18,6 +18,7 @@ class Configuracion extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;	
+		$dataE['menuActivo'] = 'Configuracion';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Configuracion/configuracion', $data);
 		$this->load->view('principal/pie');
@@ -33,7 +34,8 @@ class Configuracion extends CI_Controller {
         $dataE['titulo'] = 'Configuracion';
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
-		$dataE['administrator'] = $this->session->administrator;	
+		$dataE['administrator'] = $this->session->administrator;
+		$dataE['menuActivo'] = 'Configuracion';	
         $this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Configuracion/company/editar', $data);
 		$this->load->view('principal/pie');
@@ -49,6 +51,7 @@ class Configuracion extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;	
+		$dataE['menuActivo'] = 'Configuracion';
         $this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Configuracion/iva/editar', $data);
 		$this->load->view('principal/pie');

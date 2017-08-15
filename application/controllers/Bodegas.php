@@ -20,6 +20,7 @@ class Bodegas extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;	
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;	
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Bodegas/bodegas', $data);
 		$this->load->view('principal/pie');
@@ -33,6 +34,7 @@ class Bodegas extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;	
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Bodegas/nueva');
 		$this->load->view('principal/pie');
@@ -48,6 +50,7 @@ class Bodegas extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;	
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Bodegas/editar', $data);
 		$this->load->view('principal/pie');
@@ -63,6 +66,7 @@ class Bodegas extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;	
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Bodegas/eliminar', $data);
 		$this->load->view('principal/pie');

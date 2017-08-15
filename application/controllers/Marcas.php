@@ -20,6 +20,7 @@ class Marcas extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);		
 		$this->load->view('Marcas/marcas', $data);		
 		$this->load->view('principal/pie');
@@ -31,6 +32,7 @@ class Marcas extends CI_Controller {
 		if($this->session->permisos['marca_n'] == '0') redirect('/');
 		$dataE['titulo'] = 'Nueva Marca';
 		$dataE['companyName'] = $this->session->name;
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Marcas/nueva');
 		$this->load->view('principal/pie');
@@ -44,6 +46,7 @@ class Marcas extends CI_Controller {
 		$data['query'] = $this->marcas_model->getSingleBrand($id, $this->session->companyID);
 		$dataE['titulo'] = 'Modificar Marca';
 		$dataE['companyName'] = $this->session->name;
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Marcas/editar', $data);
 		$this->load->view('principal/pie');
@@ -57,6 +60,7 @@ class Marcas extends CI_Controller {
 		$data['query'] = $this->marcas_model->getSingleBrand($id, $this->session->companyID);
 		$dataE['titulo'] = 'Eliminar Marca';
 		$dataE['companyName'] = $this->session->name;
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Marcas/eliminar', $data);
 		$this->load->view('principal/pie');

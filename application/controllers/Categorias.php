@@ -19,6 +19,7 @@ class Categorias extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;	
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Categorias/categorias', $data);
 		$this->load->view('principal/pie');
@@ -31,7 +32,8 @@ class Categorias extends CI_Controller {
 		$dataE['titulo'] = 'Nueva Categoria';
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
-		$dataE['administrator'] = $this->session->administrator;	
+		$dataE['administrator'] = $this->session->administrator;
+		$dataE['menuActivo'] = 'Inventario';	
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Categorias/nueva');
 		$this->load->view('principal/pie');
@@ -47,6 +49,7 @@ class Categorias extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;	
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Categorias/editar', $data);
 		$this->load->view('principal/pie');
@@ -62,6 +65,7 @@ class Categorias extends CI_Controller {
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;	
+		$dataE['menuActivo'] = 'Inventario';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Categorias/eliminar', $data);
 		$this->load->view('principal/pie');
