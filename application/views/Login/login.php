@@ -7,9 +7,33 @@
 		body{padding-top:20px;}
 	</style>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>static/css/login.css">
 </head>
 <body>
-	<form action="/login/login" method="post">
+	<div class="panel col-md-4 col-md-offset-4 loginContent">
+        <div class="panel-body">
+            <div class="logo">
+                <span class="glyphicon glyphicon-user"></span>
+            </div>
+            <form class="form" id="formLogin" action="/login/login" method="post">
+                <div class="form-group">
+                    <input class="control" type="email" name="email" value="" placeholder="Correo" autocomplete="off" style="border-radius:3px 3px 0px 0px">
+                    <input class="control" type="password" name="password" value="" placeholder="Contraseña" autocomplete="off" style="border-radius:0px 0px 3px 3px">
+                </div>
+                <div class="form-group">
+                    <button class="botton bg-blue">Iniciar Sesión</button>
+                </div>
+                <div class="form-group">
+                    <p class="text-center">¿No tienes cuenta? <span class="tColor-blue"><strong>Regístrese</strong></span> </p>
+                    <p class="text-center" id="changePass"><a class="btn-link tColor-blue" style="text-decoration:none;" href="#"><strong>Olvide mi contraseña</strong></a></p>
+					<a class="btn-link tColor-blue" style="text-decoration:none;" href="#"></a>
+				</div>
+				<a class="btn-link tColor-blue" style="text-decoration:none;" href="#"></a>
+			</form>
+		</div>
+		<a class="btn-link tColor-blue" style="text-decoration:none;" href="#"></a>
+	</div>
+	<!--<form action="/login/login" method="post">
 		<div class="container">
 		    <div class="row">
 				<div class="col-md-4 col-md-offset-4">
@@ -49,6 +73,16 @@
 				</div>
 			</div>
 		</div>
-	</form>
+	</form>-->
+	  <script>
+            
+            $("#changePass").click(function(e){
+                e.preventDefault();
+                $('#formLogin').hide(200);
+            });
+            cambar = function(){
+                $('#formChange').show(200);
+            }
+        </script>
 </body>
 </html>
