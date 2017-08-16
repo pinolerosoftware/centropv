@@ -28,7 +28,129 @@
     $ventaSemana = $totalSemana[0];
     $ventaMes = $totalMes[0];
 ?>
-<div class="col-xl-4 col-lg-4 col-md-4">
+<div class="col-lg-4 col-sm-4">
+    <div class="card">
+        <div class="content">
+            <div class="row">                
+                <div class="col-xs-12">
+                    <div class="numbers">
+                        <p>Contado</p>
+                        C$ <?php echo isset($ventaDia->Contado)?number_format($ventaDia->Contado,2):"0.00"; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">                
+                <div class="col-xs-12">
+                    <div class="numbers">
+                        <p>Credito</p>
+                        C$ <?php echo isset($ventaDia->Credito)?number_format($ventaDia->Credito,2):"0.00"; ?>
+                    </div>
+                </div>
+            </div>
+             <div class="row">               
+                <div class="col-xs-12">
+                    <div class="numbers">
+                        <p>Total</p>
+                        C$ 
+                        <?php 
+                            $dia = (isset($ventaDia->Contado)?$ventaDia->Contado:0.00 ) + (isset($ventaDia->Credito)?$ventaDia->Credito:0.00);
+                            echo number_format($dia,2);
+                        ?> 
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <hr>
+                <div class="stats">
+                    <i class="ti-reload"></i> Venta por día
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-sm-4">
+    <div class="card">
+        <div class="content">
+            <div class="row">               
+                <div class="col-xs-12">
+                    <div class="numbers">
+                        <p>Contado</p>
+                        C$ <?php echo isset($ventaSemana->Contado)?number_format($ventaSemana->Contado,2):"0.00"; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">                
+                <div class="col-xs-12">
+                    <div class="numbers">
+                        <p>Credito</p>
+                        C$ <?php echo isset($ventaSemana->Credito)?number_format($ventaSemana->Credito,2):"0.00"; ?>
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-xs-12">
+                    <div class="numbers">
+                        <p>Total</p>
+                        C$ 
+                        <?php 
+                            $semana = (isset($ventaSemana->Contado)?$ventaSemana->Contado:0 ) + (isset($ventaSemana->Credito)?$ventaSemana->Credito:0);
+                            echo number_format($semana,2);
+                        ?> 
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <hr>
+                <div class="stats">
+                    <i class="ti-reload"></i> Venta por día
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-sm-4">
+    <div class="card">
+        <div class="content">
+            <div class="row">                
+                <div class="col-xs-12">
+                    <div class="numbers">
+                        <p>Contado</p>
+                        C$ <?php echo isset($ventaMes->Contado)?number_format($ventaMes->Contado,2):"0.00"; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="numbers">
+                        <p>Credito</p>
+                        C$ <?php echo isset($ventaMes->Credito)?number_format($ventaMes->Credito,2):"0.00"; ?>
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-xs-12">
+                    <div class="numbers">
+                        <p>Total</p>
+                        C$ 
+                        <?php 
+                            $mes = (isset($ventaMes->Contado)?$ventaMes->Contado:0 ) + (isset($ventaMes->Credito)?$ventaMes->Credito:0);
+                            echo number_format($mes,2);
+                        ?> 
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <hr>
+                <div class="stats">
+                    <i class="ti-reload"></i> Venta por día
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="col-xl-4 col-lg-4 col-md-4">
                     <div class="panel panel-success">
                         <div class="panel-heading">
                             <strong>Ventas del Día</strong>                          
@@ -211,5 +333,5 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 

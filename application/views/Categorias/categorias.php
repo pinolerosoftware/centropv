@@ -45,9 +45,11 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Lista de categorias</h4>
-                        <a href="/categorias/nueva" class="pull-right h4">
-                          <i class="ti-plus"></i>
-                        </a>
+                        <?php if($nuevo == '1') {?>
+                            <a href="/categorias/nueva" class="pull-right h4">
+                            <i class="ti-plus"></i>
+                            </a>
+                        <?php }?>
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-striped">
@@ -62,14 +64,18 @@
                                 <tr>
                                     <td><?php echo $fila->category; ?></td>
                                     <td style="text-align: center">
-                                        <a class="cursor-pointer" href="<?php echo base_url().'categorias/modificar/'.$fila->categoryID; ?>">
-                                            <span class="ti-pencil"></span>
-                                        </a>
+                                        <?php if($editar == '1') {?>
+                                            <a class="cursor-pointer" href="<?php echo base_url().'categorias/modificar/'.$fila->categoryID; ?>">
+                                                <span class="ti-pencil"></span>
+                                            </a>
+                                        <?php }?>
                                     </td>
                                     <td style="text-align: center">
-                                        <a class="cursor-pointer" href="<?php echo base_url().'categorias/eliminar/'.$fila->categoryID; ?>">
-                                            <span class="ti-trash"></span>
-                                        </a>
+                                        <?php if($eliminar == '1') {?>
+                                            <a class="cursor-pointer" href="<?php echo base_url().'categorias/eliminar/'.$fila->categoryID; ?>">
+                                                <span class="ti-trash"></span>
+                                            </a>
+                                        <?php }?>
                                     </td>
                                 </tr>
                             <?php

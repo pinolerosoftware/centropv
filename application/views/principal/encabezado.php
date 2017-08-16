@@ -73,7 +73,7 @@
                 <li class="<?php echo isset($menuActivo)?($menuActivo == 'Vantas')?"active":"":""; ?>">
                     <a href="/caja">
                         <i class="ti-shopping-cart"></i>
-                        <p>Vantas</p>
+                        <p>Ventas</p>
                     </a>
                 </li>
                 <li class="<?php echo isset($menuActivo)?($menuActivo == 'Reportes')?"active":"":""; ?>">
