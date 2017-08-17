@@ -40,6 +40,12 @@
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="<?php echo base_url();?>static/assets/css/themify-icons.css" rel="stylesheet">
     <!--<link href="<?php echo base_url();?>static/assets/css/paper-kit.scss" rel="stylesheet">-->
+    <?php if(isset($linkCSS)){
+      if($linkCSS == 'caja'){ ?>
+        <link href="<?php echo base_url();?>static/css/caja.css" rel="stylesheet">
+    <?php }
+    }
+    ?>
 </head>
 <body>
   <div class="wrapper">
@@ -91,4 +97,4 @@
             </ul>
     	</div>
     </div>
-     <div class="main-panel">
+    <div class="main-panel">

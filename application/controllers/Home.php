@@ -4,34 +4,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
 
 	public function __construct(){
-		parent::__construct();	
-		$this->load->model('ventas_model');			
+		parent::__construct();
+		$this->load->model('ventas_model');
 	}
 
     //[get]
     public function index(){
-        if(!isset($this->session->usercompanyID)) redirect('login');		
+        if(!isset($this->session->usercompanyID)) redirect('login');
 		$dataE['titulo'] = 'Dashboard';
-		$dataE['companyName'] = $this->session->name;		
+		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;
 		$dataE['menuActivo'] = 'Dashboard';
 		$data['totalDia'] = $this->ventas_model->ventaDia($this->session->companyID);
 		$data['totalMes'] = $this->ventas_model->ventaMes($this->session->companyID);
 		$data['totalSemana'] = $this->ventas_model->ventaSemana($this->session->companyID);
-		$data['topProductosMonto'] = $this->ventas_model->topProductosMesMonto($this->session->companyID);	
-		$data['topProductosCantidad'] = $this->ventas_model->topProductosMesCantidad($this->session->companyID);	
+		$data['topProductosMonto'] = $this->ventas_model->topProductosMesMonto($this->session->companyID);
+		$data['topProductosCantidad'] = $this->ventas_model->topProductosMesCantidad($this->session->companyID);
+		$dataP['linkScript'] = 'home';
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Home/home', $data);
-		$this->load->view('principal/pie');
+		$this->load->view('principal/pie', $dataP);
     }
 
 	//[get]
 	public function detalle(){
 		if(!isset($this->session->usercompanyID)) redirect('login');
-		$detalle = $this->uri->segment(3);		
+		$detalle = $this->uri->segment(3);
 		$dataE['titulo'] = 'Ventas del ' . $detalle;
-		$dataE['companyName'] = $this->session->name;	
+		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;
 		$dataE['menuActivo'] = 'Dashboard';
@@ -53,9 +54,9 @@ class Home extends CI_Controller {
 	//[get]
 	public function ExportarCSV(){
 		if(!isset($this->session->usercompanyID)) redirect('login');
-		$detalle = $this->uri->segment(3);		
+		$detalle = $this->uri->segment(3);
 		/*$dataE['titulo'] = 'Ventas del ' . $detalle;
-		$dataE['companyName'] = $this->session->name;	
+		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
 		$dataE['administrator'] = $this->session->administrator;*/
 		if($detalle == 'dia'){
