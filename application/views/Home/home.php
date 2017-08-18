@@ -104,7 +104,7 @@
                       <div class="footer">
                           <hr>
                           <div class="stats">
-                              <i class="ti-reload"></i> Venta por día
+                              <i class="ti-reload"></i> Venta por semana
                           </div>
                       </div>
                   </div>
@@ -145,7 +145,7 @@
                       <div class="footer">
                           <hr>
                           <div class="stats">
-                              <i class="ti-reload"></i> Venta por día
+                              <i class="ti-reload"></i> Venta por mes
                           </div>
                       </div>
                   </div>

@@ -24,13 +24,13 @@
         </nav>
         <div class="content">
 
-        <div class="col-lg-8 col-sm-8">
+        <!--<div class="col-lg-8 col-sm-8">
             <div class="card">
                 <div class="header">
                     <h4 class="title">Lista de productos</h4>
                 </div>
-                <div class="content"> 
-                    <div className="form-group">                                                                
+                <div class="content">
+                    <div className="form-group">
                             <input type="text" class="form-control border-input" placeholder="Buscar" name="categoria" />
                         </div>
                     <div class="content table-responsive table-full-width">
@@ -51,7 +51,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>                
+                </div>
             </div>
         </div>
 
@@ -59,11 +59,11 @@
             <div class="card">
                 <div class="header">
                     <div class="heading-total">
-                        <button type="button" class="btn btn-primary btn-sm btn-caja">Facturar</button>    
-                        <button type="button" class="btn btn-primary pull-right btn-sm btn-caja">Credito</button>   
+                        <button type="button" class="btn btn-primary btn-sm btn-caja">Facturar</button>
+                        <button type="button" class="btn btn-primary pull-right btn-sm btn-caja">Credito</button>
                     </div>
                 </div>
-                <div class="content">                 
+                <div class="content">
                     <section class="resumen">
                         <div class="list-group">
                             <a class="list-group-item list-group-item-action">Nacatamal</a>
@@ -88,4 +88,6 @@
                 </div>
             </div>
         </div>
+      -->
+<div id="caja2"></div>      
 <div id="caja"></div>

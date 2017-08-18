@@ -27,7 +27,7 @@
 		if($linkScript == 'caja'){ ?>
 				<script src="<?php echo base_url(); ?>static/js/react.js"></script>
 				<script src="<?php echo base_url(); ?>static/js/react-dom.js"></script>
-			  <script src="<?php echo base_url(); ?>static/js/jsx/caja.js"></script>
+			  <script src="<?php echo base_url(); ?>static/js/nuevaCaja.js"></script>
 	<?php }
 	}
 	?>
