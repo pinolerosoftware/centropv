@@ -63,7 +63,7 @@
 				}, {
 				  low: 0,
 				  showArea: true,
-				  showPoint: false,
+				  showPoint: true,
 				  fullWidth: true
 				});
 
