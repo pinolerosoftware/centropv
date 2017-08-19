@@ -12,6 +12,18 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
+                            <a href="/clientes" >
+                                <i class="ti-panel"></i>
+								<p>Clientes</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/empresas" >
+                                <i class="ti-panel"></i>
+								<p>Categoria de clientes</p>
+                            </a>
+                        </li>
+                        <li>
                             <a href="/login/logout">
 								<p>Salir</p>
 								<i class="ti-shift-right"></i>

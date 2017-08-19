@@ -40,31 +40,31 @@
             </div>
         </nav>
         <div class="content">
-				<div class="row">                    
-          <div class="col-lg-12 col-md-7">
-						<div class="card">
-							<div class="header">
-              	<h4 class="title">Nueva categoria</h4>
-              </div>
-							<div class="content">
-								<form action="/categorias/guardar" method="post">
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<label for="categoria">Categoria</label>
-												<input type="text" class="form-control border-input" placeholder="Ingrese la bodega" name="categoria" required/>
-											</div>
+			<div class="row">                    
+          		<div class="col-lg-12 col-md-7">
+					<div class="card">
+						<div class="header">
+              				<h4 class="title">Nueva categoria</h4>
+              			</div>
+						<div class="content">
+							<form action="/categorias/guardar" method="post">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="categoria">Categoria</label>
+											<input type="text" class="form-control border-input" placeholder="Ingrese la bodega" name="categoria" required/>
 										</div>
 									</div>
-									<!--Boton de guardar-->
-									<div class="text-center">
-										<button type="submit" class="btn btn-default btn-wd">Guardar</button>
-									</div>	
-								</form>
-							</div>
+								</div>
+								<!--Boton de guardar-->
+								<div class="text-center">
+									<button type="submit" class="btn btn-default btn-wd">Guardar</button>
+								</div>	
+							</form>
 						</div>
 					</div>
 				</div>
+			</div>
 
 <!--<div class="panel panel-success">
 	<div class="panel-heading">

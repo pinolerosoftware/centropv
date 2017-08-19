@@ -58,7 +58,7 @@ var Productos = React.createClass({
                                                         </div>
                                                 </form>
                                         </section>  
-                                        <section class="lista" id="lista">
+                                        <section className="lista" id="lista">
                                                 <div className="list-group">
                                                         {
                                                                 this.state.productos.map(this.eachProducto)
