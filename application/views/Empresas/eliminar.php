@@ -1,5 +1,5 @@
-<?php 
-	$busisness = $query[0]; 
+<?php
+	$busisness = $query[0];
 ?>
 <nav class="navbar navbar-default">
             <div class="<con></con>tainer-fluid">
@@ -38,7 +38,7 @@
             </div>
         </nav>
         <div class="content">
-					<div class="row">                    
+					<div class="row">
           	<div class="col-lg-12 col-md-7">
 							<div class="card">
 								<div class="header">
@@ -46,7 +46,7 @@
 								</div>
 								<div class="content">
 									<form action="/empresa/borrar" method="post">
-										<input type="hidden" value="<?php echo $busisness->businessID; ?>" name="busisnessID" />										
+										<input type="hidden" value="<?php echo $busisness->businessID; ?>" name="businessID" />										
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">
@@ -58,7 +58,7 @@
 										<!--Boton de guardar-->
 										<div class="text-center">
 											<button type="submit" class="btn btn-default btn-wd">Eliminar</button>
-										</div>	
+										</div>
 									</form>
 								</div>
 							</div>
@@ -77,10 +77,10 @@
 			    <input class="form-control" type="text" placeholder="Ingrese el nombre de la categoria" name="busisnes" value="<?php echo $busisness->business; ?>" disabled>
 			  </div>
 			</div>
-			<div class="form-group row">				
+			<div class="form-group row">
 		      	<div class="center">
 		        	<button type="submit" class="btn btn-primary">Eliminar</button>
-		      	</div>		      
+		      	</div>
 		    </div>
 		</form>
 	</div>

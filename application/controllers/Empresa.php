@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Empresa extends CI_Controller {
 
 	public function __construct(){
-		parent::__construct();		
+		parent::__construct();
 		$this->load->model('empresa_model');
 	}
 	//[get]
@@ -38,8 +38,8 @@ class Empresa extends CI_Controller {
 	}
 
 	//[get]
-	public function modificar(){	
-		if(!isset($this->session->usercompanyID)) redirect('login');	
+	public function modificar(){
+		if(!isset($this->session->usercompanyID)) redirect('login');
 		if($this->session->permisos['categoria_cliente_m'] == '0') redirect('/');
 		$id = $this->uri->segment(3);
 		$data['query'] = $this->empresa_model->getSingle($id, $this->session->companyID);
@@ -53,11 +53,12 @@ class Empresa extends CI_Controller {
 	}
 
 	//[get]
-	public function eliminar(){		
+	public function eliminar(){
 		if(!isset($this->session->usercompanyID)) redirect('login');
 		if($this->session->permisos['categoria_cliente_e'] == '0') redirect('/');
 		$id = $this->uri->segment(3);
 		$data['query'] = $this->empresa_model->getSingle($id, $this->session->companyID);
+		if(sizeof($data['query']) == 0) redirect('empresa');
 		$dataE['titulo'] = 'Eliminar empresa';
 		$dataE['companyName'] = $this->session->name;
 		$dataE['permisos'] = $this->session->permisos;
@@ -90,6 +91,8 @@ class Empresa extends CI_Controller {
 	public function borrar(){
 		if(!isset($this->session->usercompanyID)) redirect('login');
 		if($this->session->permisos['categoria_cliente_e'] == '0') redirect('/');
+		echo "busisnesID : ". $this->input->post("businessID");
+		echo "companyID : ". $this->session->companyID;
 		$this->empresa_model->delete($this->input->post("businessID"), $this->session->companyID);
 		redirect('empresa');
 	}

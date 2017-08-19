@@ -18,7 +18,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/empresas" >
+                            <a href="/empresa" >
                                 <i class="ti-panel"></i>
 								<p>Categoria de clientes</p>
                             </a>
@@ -101,5 +101,5 @@
             </div>
         </div>
       -->
-<div id="caja2"></div>      
+<div id="caja2"></div>
 <div id="caja"></div>

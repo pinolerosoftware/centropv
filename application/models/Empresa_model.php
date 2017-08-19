@@ -22,14 +22,14 @@ class Empresa_model extends CI_Model {
 	//Modificar
 	public function update($businessID, $companyID, $data){
 		$this->db->where('businessID', $businessID);
-        $this->db->where('companyID', $companyID);
+    $this->db->where('companyID', $companyID);
 		$this->db->update('category_customer', $data);
 	}
 
 	//Eliminar
 	public function delete($businessID, $companyID){
 		$this->db->where('businessID', $businessID);
-        $this->db->where('companyID', $companyID);
+    $this->db->where('companyID', $companyID);
 		$this->db->delete('category_customer');
 	}
 
