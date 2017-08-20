@@ -21,8 +21,6 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 	<script src="<?php echo base_url(); ?>static/assets/js/paper-dashboard.js"></script>
-	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-	<script src="<?php echo base_url(); ?>static/assets/js/demo.js"></script>
 	<?php if(isset($linkScript)){
 		if($linkScript == 'caja'){ ?>
 				<script src="<?php echo base_url(); ?>static/js/react.js"></script>
@@ -57,8 +55,8 @@
 				  labels: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'],
 				  series: [
 						<?php
-								$stringArrayContado = '[';
-								$stringArrayCredito = '[';
+								$stringArrayContado = '';
+								$stringArrayCredito = '';
 								foreach ($ventaSemaGrafico as $fila) {
 									if($fila->Contado == 1){
 										$stringArrayContado = $stringArrayContado . $fila->Monto . ',';
@@ -69,8 +67,8 @@
 								}
 								$stringArrayContado = substr($stringArrayContado,0,strlen($stringArrayContado) - 1);
 								$stringArrayCredito = substr($stringArrayCredito,0,strlen($stringArrayCredito) - 1);
-								$stringArrayContado = $stringArrayContado. '],';
-								$stringArrayCredito = $stringArrayCredito . ']';
+								$stringArrayContado = '['. $stringArrayContado. '],';
+								$stringArrayCredito = '['. $stringArrayCredito . ']';
 								echo $stringArrayContado;
 								echo $stringArrayCredito;
 						?>
