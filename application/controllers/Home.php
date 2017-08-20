@@ -22,6 +22,7 @@ class Home extends CI_Controller {
 		$data['topProductosMonto'] = $this->ventas_model->topProductosMesMonto($this->session->companyID);
 		$data['topProductosCantidad'] = $this->ventas_model->topProductosMesCantidad($this->session->companyID);
 		$dataP['linkScript'] = 'home';
+		$dataP['ventaSemaGrafico'] = $this->ventas_model->ventaSemanaGrafico($this->session->companyID);
 		$this->load->view('principal/encabezado', $dataE);
 		$this->load->view('Home/home', $data);
 		$this->load->view('principal/pie', $dataP);

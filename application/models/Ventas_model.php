@@ -10,7 +10,7 @@ class Ventas_model extends CI_Model {
 	}
     //insertamos venta normal
     public function insertVenta($listaProducto, $companyID, $userCompanyID, $datosIva){
-            $total = 0;    
+            $total = 0;
             $subTotal = 0;
             $iva = 0;
             $dataSalesDetails = array();
@@ -24,7 +24,7 @@ class Ventas_model extends CI_Model {
                     $total = $total + ($datosProductos->precio * $fila["cantidad"]) + ($datosProductos->precio * $fila["cantidad"] * ($datosIva->porcentaje/100));
                 }else{
                     $total = $total + ($datosProductos->precio * $fila["cantidad"]);
-                }        
+                }
                 $dataSalesDetails[] = array(
                     'saleID' => 0,
                     'companyID' => $companyID,
@@ -48,18 +48,18 @@ class Ventas_model extends CI_Model {
             );
             $this->db->trans_start();
             $this->db->insert('sales', $dataSales);
-            $id = $this->db->insert_id(); 
+            $id = $this->db->insert_id();
             for($i = 0; $i < sizeof($dataSalesDetails); $i++){
                 $dataSalesDetails[$i]["saleID"] = $id;
-            }         
+            }
             $this->db->insert_batch('salesdetails', $dataSalesDetails);
             $this->db->trans_complete();
             return $id;
-    }	
+    }
 
     //insertamos venta al credito
     public function insertVentaCredito($listaProducto, $companyID, $userCompanyID, $cliente, $datosIva){
-            $total = 0;    
+            $total = 0;
             $subTotal = 0;
             $iva = 0;
             $dataSalesDetails = array();
@@ -72,7 +72,7 @@ class Ventas_model extends CI_Model {
                     //$total = $total + ($datosProductos->precio * $fila["cantidad"]) + ($datosProductos->precio * $fila["cantidad"] * ($datosIva->porcentaje/100));
                 /*}else{
                     $total = $total + ($datosProductos->precio * $fila["cantidad"]);
-                } */       
+                } */
                 $dataSalesDetails[] = array(
                     'saleID' => 0,
                     'companyID' => $companyID,
@@ -82,7 +82,7 @@ class Ventas_model extends CI_Model {
                     'iva' => ($datosProductos->taxFree == "1")?$datosProductos->precio * $fila["cantidad"] * ($datosIva->porcentaje/100):0.00
                 );
             }
-            $total = $subTotal + $iva;  
+            $total = $subTotal + $iva;
             $fecha = getdate();
             $fechaNow = $fecha["year"] . '-' . (($fecha["mon"] < 10)?"0".$fecha["mon"]:$fecha["mon"]) . '-' . (($fecha["mday"] < 10)?"0".$fecha["mday"]:$fecha["mday"]) . ' ' . (($fecha["hours"] < 10) ? "0". $fecha["hours"] : $fecha["hours"]) . ':' . (($fecha["minutes"] < 10) ? "0".$fecha["minutes"] : $fecha["minutes"]) . ':' . (($fecha["seconds"] < 10) ? "0".$fecha["seconds"] : $fecha["seconds"]);
             $dataSales = array(
@@ -95,33 +95,33 @@ class Ventas_model extends CI_Model {
                 'customerID' => $cliente["customerID"],
                 'cancelada' => 0,
                 'contado' => 0
-            );   
-            $this->db->trans_start();         
+            );
+            $this->db->trans_start();
             $this->db->insert('sales', $dataSales);
             $id = $this->db->insert_id();
             for($i = 0; $i < sizeof($dataSalesDetails); $i++){
                 $dataSalesDetails[$i]["saleID"] = $id;
-            }    
+            }
             $this->db->insert_batch('salesdetails', $dataSalesDetails);
             $this->db->query("update customers set saldo = saldo + ". $total ." where companyID = ". $companyID ." and customerID = ". $cliente["customerID"]);
             $this->db->trans_complete();
             return $id;
-    }	
+    }
 
     //Consulta
     public function ventaDia($companyID){
         $query = $this->db->query('
-                                    select 
+                                    select
                                             (select sum(Total) from sales where companyID = '.$companyID.' and convert(fecha,date) = convert(now(),date) and sales.contado = 1) as Contado,
                                             (select sum(Total) from sales where companyID = '.$companyID.' and convert(fecha,date) = convert(now(),date) and sales.contado = 0) as Credito
                                   ');
         return $query->result();
     }
 
-    public function ventaDiaDetalle($companyID){        
+    public function ventaDiaDetalle($companyID){
         $query = $this->db->query('
             select products.codigo,products.descripcion,salesdetails.cantidad,salesdetails.precio,salesdetails.iva,(case sales.contado when 1 then salesdetails.cantidad * salesdetails.precio + salesdetails.iva else 0.00 end) as Contado,(case sales.contado when 0 then salesdetails.cantidad * salesdetails.precio + salesdetails.iva else 0.00 end) as Credito
-            from sales 
+            from sales
             inner join salesdetails on sales.saleID = salesdetails.saleID
             inner join products on salesdetails.productID = products.ProductID
             where salesdetails.companyID = '. $companyID .' and convert(fecha,date) = convert(now(),date)
@@ -132,9 +132,28 @@ class Ventas_model extends CI_Model {
 
     public function ventaSemana($companyID){
          $query = $this->db->query('
-                                    select 
+                                    select
                                             (select sum(Total) from sales where companyID = '.$companyID.' and CONVERT(fecha,date) between CONVERT(date_add(now(),interval ( 1 - dayofweek(now()) ) day), DATE) and convert(date_add(now(),interval ( 7 - dayofweek(now()) ) day), date) and sales.contado = 1) as Contado,
                                             (select sum(Total) from sales where companyID = '.$companyID.' and CONVERT(fecha,date) between CONVERT(date_add(now(),interval ( 1 - dayofweek(now()) ) day), DATE) and convert(date_add(now(),interval ( 7 - dayofweek(now()) ) day), date) and sales.contado = 0) as Credito
+                                  ');
+        return $query->result();
+        /*$query = $this->db->query('select sum(Total) as totalSemana from sales where companyID = '.$companyID.' and CONVERT(fecha,date) between CONVERT(date_add(now(),interval ( 1 - dayofweek(now()) ) day), DATE) and convert(date_add(now(),interval ( 7 - dayofweek(now()) ) day), date)');
+        return $query->result();*/
+    }
+
+    public function ventaSemanaGrafico($companyID){
+         $query = $this->db->query('
+                                    select (case Dia when \'Monday\' then 1 when \'Tuesday\' then 2 when \'Wednesday\' then 3 when \'Thursday\' then 4 when \'Friday\' then 5 when \'Saturday\' then 6 when \'Sunday\' then 7 end) as Orden,Dia,Fecha,Contado,Monto
+                                    from
+                                    (
+                                      select date_format(Fecha,\'%W\') as Dia,convert(fecha,date) as Fecha,Contado,sum(Total) as Monto
+                                      from sales
+                                      where 	companyID = '.$companyID.' and
+                                              CONVERT(fecha,date) between CONVERT(date_add(now(),interval (case date_format(now(),\'%W\') when \'Monday\' then 0 when \'Tuesday\' then -1 when \'Wednesday\' then -2 when \'Thursday\' then -3 when \'Friday\' then -4 when \'Saturday\' then -5 when \'Sunday\' then -6 end) day), DATE) and
+                                              convert(date_add(now(),interval (case date_format(now(),\'%W\') when \'Monday\' then 6 when \'Tuesday\' then 5 when \'Wednesday\' then 4 when \'Thursday\' then 3 when \'Friday\' then 2 when \'Saturday\' then 1 when \'Sunday\' then 0 end) day), date)
+                                      group by convert(fecha,date),Contado
+                                    ) as R
+                                    order by Orden asc
                                   ');
         return $query->result();
         /*$query = $this->db->query('select sum(Total) as totalSemana from sales where companyID = '.$companyID.' and CONVERT(fecha,date) between CONVERT(date_add(now(),interval ( 1 - dayofweek(now()) ) day), DATE) and convert(date_add(now(),interval ( 7 - dayofweek(now()) ) day), date)');
@@ -144,7 +163,7 @@ class Ventas_model extends CI_Model {
     public function ventaSemanaDetalle($companyID){
         $query = $this->db->query('
             select products.codigo,products.descripcion,salesdetails.cantidad,salesdetails.precio,salesdetails.iva,(case sales.contado when 1 then salesdetails.cantidad * salesdetails.precio + salesdetails.iva else 0.00 end) as Contado,(case sales.contado when 0 then salesdetails.cantidad * salesdetails.precio + salesdetails.iva else 0.00 end) as Credito
-            from sales 
+            from sales
             inner join salesdetails on sales.saleID = salesdetails.saleID
             inner join products on salesdetails.productID = products.ProductID
             where sales.companyID = '. $companyID .' and CONVERT(sales.fecha,date) between CONVERT(date_add(now(),interval ( 1 - dayofweek(now()) ) day), DATE) and convert(date_add(now(),interval ( 7 - dayofweek(now()) ) day), date)
@@ -155,7 +174,7 @@ class Ventas_model extends CI_Model {
 
     public function ventaMes($companyID){
         $query = $this->db->query('
-                                    select 
+                                    select
                                             (select sum(Total) from sales where companyID = '.$companyID.' and month(fecha) = month(now()) and sales.contado = 1) as Contado,
                                             (select sum(Total) from sales where companyID = '.$companyID.' and month(fecha) = month(now()) and sales.contado = 0) as Credito
                                   ');
@@ -165,7 +184,7 @@ class Ventas_model extends CI_Model {
     public function ventaMesDetalle($companyID){
         $query = $this->db->query('
             select products.codigo,products.descripcion,salesdetails.cantidad,salesdetails.precio,salesdetails.iva,(case sales.contado when 1 then salesdetails.cantidad * salesdetails.precio + salesdetails.iva else 0.00 end) as Contado,(case sales.contado when 0 then salesdetails.cantidad * salesdetails.precio + salesdetails.iva else 0.00 end) as Credito
-            from sales 
+            from sales
             inner join salesdetails on sales.saleID = salesdetails.saleID
             inner join products on salesdetails.productID = products.ProductID
             where sales.companyID = '.$companyID.' and month(sales.fecha) = month(now())
@@ -175,7 +194,7 @@ class Ventas_model extends CI_Model {
     }
 
     public function topProductosMesMonto($companyID){
-        $query = $this->db->query('            
+        $query = $this->db->query('
             select descripcion,sum(monto) as monto
             from
             (
@@ -193,7 +212,7 @@ class Ventas_model extends CI_Model {
     }
 
      public function topProductosMesCantidad($companyID){
-        $query = $this->db->query('            
+        $query = $this->db->query('
             select descripcion,sum(cantidad) as cantidad
             from
             (
@@ -212,7 +231,7 @@ class Ventas_model extends CI_Model {
 
     //Obtener consulta para reporte del tab venta
     public function reporteVenta($fechaInicio, $fechaFinal, $companyID){
-        $query = $this->db->query("            
+        $query = $this->db->query("
             select (case ifnull(s.customerID,'') when '' then 'Concurrente' else concat(c.firstname,' ' ,c.lastname) end) as cliente,s.subtotal,s.iva,s.total,(case s.cancelada when 1 then 'Si' else 'No' end) as cancelada
             from sales as s
             left join customers as c on s.customerID = c.customerID and s.companyID = c.companyID
@@ -223,7 +242,7 @@ class Ventas_model extends CI_Model {
 
     //Obtener consulta para reporte del tab productos
     public function reporteVentaProductos($fechaInicio, $fechaFinal, $companyID){
-        $query = $this->db->query("            
+        $query = $this->db->query("
             select descripcion,sum(cantidad) as cantidad,sum(monto) as monto
             from
             (
@@ -240,7 +259,7 @@ class Ventas_model extends CI_Model {
 
     //Obtener consulta para reporte del tab Uuarios
     public function reporteVentaUsuarios($fechaInicio, $fechaFinal, $companyID){
-        $query = $this->db->query("            
+        $query = $this->db->query("
             select s.usercompanyID,concat(u.firstname, ' ', u.lastname) as usuario,count(s.saleID) as cantidad,sum(total) as monto
             from sales as s
             inner join users_company as u on s.usercompanyID = u.usercompanyID and s.companyID = u.companyID
@@ -252,7 +271,7 @@ class Ventas_model extends CI_Model {
 
     //Obtener consulta para reporte del tab Clientes
     public function reporteVentaClientes($fechaInicio, $fechaFinal, $companyID){
-        $query = $this->db->query("            
+        $query = $this->db->query("
             select (case ifnull(s.customerID,'') when '' then 'Concurrente' else concat(c.firstname,' ' ,c.lastname) end) as cliente,sum(s.subtotal) as subtotal,sum(s.iva) as iva,sum(s.total) as total
             from sales as s
             left join customers as c on s.customerID = c.customerID and s.companyID = c.companyID

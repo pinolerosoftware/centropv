@@ -250,17 +250,17 @@ class Clientes extends React.Component {
                     React.createElement(
                         "th",
                         null,
-                        React.createElement("input", { type: "text", ref: "nombres", className: "form-control", placeholder: "Filtro por nombre", onChange: this.onChangeFiltro })
+                        React.createElement("input", { type: "text", ref: "nombres", className: "form-control border-input", placeholder: "Filtro por nombre", onChange: this.onChangeFiltro })
                     ),
                     React.createElement(
                         "th",
                         null,
-                        React.createElement("input", { type: "text", ref: "apellidos", className: "form-control", placeholder: "Filtro por apellidos", onChange: this.onChangeFiltro })
+                        React.createElement("input", { type: "text", ref: "apellidos", className: "form-control border-input", placeholder: "Filtro por apellidos", onChange: this.onChangeFiltro })
                     ),
                     React.createElement(
                         "th",
                         null,
-                        React.createElement("input", { type: "text", ref: "empresas", className: "form-control", placeholder: "Filtro por empresa", onChange: this.onChangeFiltro })
+                        React.createElement("input", { type: "text", ref: "empresas", className: "form-control border-input", placeholder: "Filtro por empresa", onChange: this.onChangeFiltro })
                     )
                 )
             ),
@@ -398,7 +398,7 @@ class Caja extends React.Component {
             });
         }
     }
-    onClickCredito() {
+    onClickCredito(clie) {
         if (this.state.ventaProductos.length > 0) {
             this.setState({ btnCreditoText: 'Guardando...', btnEstado: true });
             $('#ventanaModal').fadeOut();
@@ -565,7 +565,11 @@ class Caja extends React.Component {
                             "Lista de Clientes"
                         )
                     ),
-                    React.createElement("div", { className: "ventanaModal-body" })
+                    React.createElement(
+                        "div",
+                        { className: "ventanaModal-body" },
+                        React.createElement(Clientes, { onClickCliente: this.onClickCredito })
+                    )
                 )
             )
         );

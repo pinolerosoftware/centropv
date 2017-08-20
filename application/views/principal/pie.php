@@ -54,17 +54,32 @@
 		 ?>
 			<script>
 					var chart = new Chartist.Line('.graficoPastel', {
-				  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+				  labels: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'],
 				  series: [
-				    [1, 5, 2, 5, 4, 3],
-				    [2, 3, 4, 8, 1, 2],
-				    [5, 4, 3, 2, 1, 0.5]
+						<?php
+								$stringArrayContado = '[';
+								$stringArrayCredito = '[';
+								foreach ($ventaSemaGrafico as $fila) {
+									if($fila->Contado == 1){
+										$stringArrayContado = $stringArrayContado . $fila->Monto . ',';
+									}
+									else{
+										$stringArrayCredito = $stringArrayCredito . $fila->Monto . ',';
+									}
+								}
+								$stringArrayContado = substr($stringArrayContado,0,strlen($stringArrayContado) - 1);
+								$stringArrayCredito = substr($stringArrayCredito,0,strlen($stringArrayCredito) - 1);
+								$stringArrayContado = $stringArrayContado. '],';
+								$stringArrayCredito = $stringArrayCredito . ']';
+								echo $stringArrayContado;
+								echo $stringArrayCredito;
+						?>
 				  ]
 				}, {
 				  low: 0,
-				  showArea: true,
+				  showArea: false,
 				  showPoint: true,
-				  fullWidth: true
+				  fullWidth: false
 				});
 
 				chart.on('draw', function(data) {

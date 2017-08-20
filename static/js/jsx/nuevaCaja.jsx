@@ -164,13 +164,13 @@ class Clientes extends React.Component{
             </tr>
             <tr>
               <th>
-                      <input type="text" ref="nombres" className="form-control" placeholder="Filtro por nombre" onChange={this.onChangeFiltro}/>
+                      <input type="text" ref="nombres" className="form-control border-input" placeholder="Filtro por nombre" onChange={this.onChangeFiltro}/>
               </th>
               <th>
-                      <input type="text" ref="apellidos" className="form-control" placeholder="Filtro por apellidos" onChange={this.onChangeFiltro}/>
+                      <input type="text" ref="apellidos" className="form-control border-input" placeholder="Filtro por apellidos" onChange={this.onChangeFiltro}/>
               </th>
               <th>
-                      <input type="text" ref="empresas" className="form-control" placeholder="Filtro por empresa" onChange={this.onChangeFiltro}/>
+                      <input type="text" ref="empresas" className="form-control border-input" placeholder="Filtro por empresa" onChange={this.onChangeFiltro}/>
               </th>
             </tr>
           </thead>
@@ -319,7 +319,7 @@ class Caja extends React.Component{
             });
         }
     }
-    onClickCredito(){
+    onClickCredito(clie){
         if(this.state.ventaProductos.length > 0){
             this.setState({ btnCreditoText: 'Guardando...', btnEstado: true });
             $('#ventanaModal').fadeOut();
@@ -397,7 +397,7 @@ class Caja extends React.Component{
                           <h4 className="ventanaModal-title">Lista de Clientes</h4>
                           </div>
                           <div className="ventanaModal-body">
-
+                            <Clientes onClickCliente={this.onClickCredito} />
                           </div>
                       </div>
                     </div>

@@ -152,6 +152,23 @@
               </div>
           </div>
 
+          <div class="col-lg-12 col-sm-12">
+            <div class="card">
+              <div class="content">
+                <div class="graficoPastel" style="height: 250px;">
+                </div>
+              </div>
+              <div class="footer">
+                  <hr>
+                  <div class="stats">
+                      <div style="background-color:#F3BB45; width: 10px; height: 10px; margin-left: 10px"></div> Contado <br />
+                      <div style="background-color:#68B3C8; width: 10px; height: 10px; margin-left: 10px"></div> Credito <br />
+                      <i class="ti-reload margin-left: 10px"></i> Ventas de la semana
+                  </div>
+              </div>
+            </div>
+          </div>
+
             <div class="col-lg-12 col-sm-12">
               <div class="card">
                 <div class="content">
@@ -191,20 +208,7 @@
               </div>
             </div>
 
-            <div class="col-lg-12 col-sm-12">
-              <div class="card">
-                <div class="content">
-                  <div class="graficoPastel" style="height: 250px;">
-                  </div>
-                </div>
-                <div class="footer">
-                    <hr>
-                    <div class="stats">
-                        <i class="ti-reload"></i> Top Productos
-                    </div>
-                </div>
-              </div>
-            </div>
+
 
 <!--<div class="col-xl-4 col-lg-4 col-md-4">
                     <div class="panel panel-success">
