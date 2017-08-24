@@ -46,7 +46,6 @@
     <?php
 		}
 	}  ?>
-
 	<?php if(isset($linkScript)){
 					if($linkScript == 'home'){
 		 ?>
@@ -57,13 +56,9 @@
 						<?php
 								$stringArrayContado = '';
 								$stringArrayCredito = '';
-								foreach ($ventaSemaGrafico as $fila) {
-									if($fila->Contado == 1){
-										$stringArrayContado = $stringArrayContado . $fila->Monto . ',';
-									}
-									else{
-										$stringArrayCredito = $stringArrayCredito . $fila->Monto . ',';
-									}
+								foreach ($ventaSemaGrafico as $fila) {									
+									$stringArrayContado = $stringArrayContado . $fila->Contado . ',';									
+									$stringArrayCredito = $stringArrayCredito . $fila->Credito . ',';									
 								}
 								$stringArrayContado = substr($stringArrayContado,0,strlen($stringArrayContado) - 1);
 								$stringArrayCredito = substr($stringArrayCredito,0,strlen($stringArrayCredito) - 1);

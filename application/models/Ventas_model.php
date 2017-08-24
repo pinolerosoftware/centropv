@@ -143,17 +143,26 @@ class Ventas_model extends CI_Model {
 
     public function ventaSemanaGrafico($companyID){
          $query = $this->db->query('
-                                    select (case Dia when \'Monday\' then 1 when \'Tuesday\' then 2 when \'Wednesday\' then 3 when \'Thursday\' then 4 when \'Friday\' then 5 when \'Saturday\' then 6 when \'Sunday\' then 7 end) as Orden,Dia,Fecha,Contado,Monto
+                                    select 	*,
+                                    ifnull((select sum(Total) from sales where companyID = '.$companyID.' and convert(fecha, date)=dia and contado = 1),0) as Contado,
+                                    ifnull((select sum(Total) from sales where companyID = '.$companyID.' and convert(fecha, date)=dia and contado = 0),0) as Credito
                                     from
                                     (
-                                      select date_format(Fecha,\'%W\') as Dia,convert(fecha,date) as Fecha,Contado,sum(Total) as Monto
-                                      from sales
-                                      where 	companyID = '.$companyID.' and
-                                              CONVERT(fecha,date) between CONVERT(date_add(now(),interval (case date_format(now(),\'%W\') when \'Monday\' then 0 when \'Tuesday\' then -1 when \'Wednesday\' then -2 when \'Thursday\' then -3 when \'Friday\' then -4 when \'Saturday\' then -5 when \'Sunday\' then -6 end) day), DATE) and
-                                              convert(date_add(now(),interval (case date_format(now(),\'%W\') when \'Monday\' then 6 when \'Tuesday\' then 5 when \'Wednesday\' then 4 when \'Thursday\' then 3 when \'Friday\' then 2 when \'Saturday\' then 1 when \'Sunday\' then 0 end) day), date)
-                                      group by convert(fecha,date),Contado
-                                    ) as R
-                                    order by Orden asc
+                                        select CONVERT(date_add(now(),interval (case date_format(now(),\'%W\') when \'Monday\' then 0 when \'Tuesday\' then -1 when \'Wednesday\' then -2 when \'Thursday\' then -3 when \'Friday\' then -4 when \'Saturday\' then -5 when \'Sunday\' then -6 end) day), DATE) as Dia
+                                        union
+                                        select CONVERT(date_add(now(),interval (case date_format(now(),\'%W\') when \'Monday\' then 1 when \'Tuesday\' then 0 when \'Wednesday\' then -1 when \'Thursday\' then -2 when \'Friday\' then -3 when \'Saturday\' then -4 when \'Sunday\' then -5 end) day), DATE) as Dia
+                                        union
+                                        select CONVERT(date_add(now(),interval (case date_format(now(),\'%W\') when \'Monday\' then 2 when \'Tuesday\' then 1 when \'Wednesday\' then 0 when \'Thursday\' then -1 when \'Friday\' then -2 when \'Saturday\' then -3 when \'Sunday\' then -4 end) day), DATE)  as Dia
+                                        union
+                                        select CONVERT(date_add(now(),interval (case date_format(now(),\'%W\') when \'Monday\' then 3 when \'Tuesday\' then 2 when \'Wednesday\' then 1 when \'Thursday\' then 0 when \'Friday\' then -1 when \'Saturday\' then -2 when \'Sunday\' then -3 end) day), DATE)     as Dia
+                                        union
+                                        select CONVERT(date_add(now(),interval (case date_format(now(),\'%W\') when \'Monday\' then 4 when \'Tuesday\' then 3 when \'Wednesday\' then 2 when \'Thursday\' then 1 when \'Friday\' then 0 when \'Saturday\' then -1 when \'Sunday\' then -2 end) day), DATE)     as Dia
+                                        union
+                                        select CONVERT(date_add(now(),interval (case date_format(now(),\'%W\') when \'Monday\' then 5 when \'Tuesday\' then 4 when \'Wednesday\' then 3 when \'Thursday\' then 2 when \'Friday\' then 1 when \'Saturday\' then 0 when \'Sunday\' then -1 end) day), DATE)     as Dia
+                                        union
+                                        select CONVERT(date_add(now(),interval (case date_format(now(),\'%W\') when \'Monday\' then 6 when \'Tuesday\' then 5 when \'Wednesday\' then 4 when \'Thursday\' then 3 when \'Friday\' then 2 when \'Saturday\' then 1 when \'Sunday\' then 0 end) day), DATE)     as Dia
+                                    ) as Semana
+                                    order by Dia asc
                                   ');
         return $query->result();
         /*$query = $this->db->query('select sum(Total) as totalSemana from sales where companyID = '.$companyID.' and CONVERT(fecha,date) between CONVERT(date_add(now(),interval ( 1 - dayofweek(now()) ) day), DATE) and convert(date_add(now(),interval ( 7 - dayofweek(now()) ) day), date)');
